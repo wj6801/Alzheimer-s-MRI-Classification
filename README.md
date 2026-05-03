@@ -39,7 +39,7 @@ Dataset: OASIS Alzheimer’s MRI Dataset
 ## Model Architecture
 - Base Model: EfficientNetB0 (pre-trained on ImageNet)
 - Custom Layers:
-  - Conv2D (used for Grad-CAM)
+  - Conv2D
   - Global Average Pooling
   - Dropout
   - Dense (Softmax output)
@@ -74,7 +74,7 @@ Class weights are applied during training to balance the dataset.
 
 ---
 
-## Grad-CAM (Explainability)
+## Grad-CAM
 Grad-CAM (Gradient-weighted Class Activation Mapping) is used to visualize which regions of the MRI influenced the model’s prediction.
 
 Outputs include:
@@ -103,7 +103,7 @@ Run Grad-CAM:
 ```bash
 Python gradcam.py
 ```
----
+
 Limitations:
 Slice-level classification instead of patient-level diagnosis
 Potential data leakage due to slicing
@@ -126,4 +126,4 @@ Wonjae Lee
 
 References:
 https://www.kaggle.com/datasets/ninadaithal/imagesoasis/data?select=Data
----
+
