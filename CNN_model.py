@@ -31,7 +31,6 @@ class_names = [
     "Very mild Dementia"
 ]
 
-
 # Load training data
 train_ds = tf.keras.utils.image_dataset_from_directory(
     path,
