@@ -46,7 +46,7 @@ Dataset: OASIS Alzheimer’s MRI Dataset
 
 ---
 
-## ⚙️ Training Strategy
+## Training Strategy
 
 ### Preprocessing
 - Resize images to 224×224
@@ -55,7 +55,6 @@ Dataset: OASIS Alzheimer’s MRI Dataset
   - Rotation
   - Zoom
   - Contrast adjustment  
-  (No horizontal flipping to preserve brain structure)
 
 ### Class Imbalance Handling
 Class weights are applied during training to balance the dataset.
@@ -85,21 +84,6 @@ Outputs include:
 
 This improves interpretability, which is critical in medical applications.
 
----
-
-## Project Structure
-├── data/
-├── notebooks/
-├── models/
-├── src/
-│ ├── train.py
-│ ├── gradcam.py
-│ └── utils.py
-├── results/
-└── README.md
-
----
-
 ## How to Run
 
 ### Install dependencies
@@ -116,6 +100,7 @@ python train.py
 Run Grad-CAM:
 Python gradcam.py
 
+---
 Limitations:
 Slice-level classification instead of patient-level diagnosis
 Potential data leakage due to slicing
@@ -138,3 +123,4 @@ Wonjae Lee
 
 References:
 https://www.kaggle.com/datasets/ninadaithal/imagesoasis/data?select=Data
+---
