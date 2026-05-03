@@ -17,17 +17,6 @@ from tensorflow.keras.applications.efficientnet import preprocess_input
 path = kagglehub.dataset_download("ninadaithal/imagesoasis")
 print("Dataset path:", path)
 
-
-def find_image_root(base_path):
-    expected = ["Non Demented", "Very Mild Dementia", "Mild Dementia", "Moderate Dementia"]
-    for root, dirs, files in os.walk(base_path):
-        if all(cls in dirs for cls in expected):
-            return root
-    return base_path
-
-data_dir = find_image_root(path)
-print("Using data directory:", data_dir)
-
 #Setup
 
 IMG_SIZE = (224, 224)
@@ -35,35 +24,35 @@ BATCH_SIZE = 32
 SEED = 42
 NUM_CLASSES = 4
 
-class_names_order = [
-    "Non Demented",
-    "Very Mild Dementia",
+class_names = [
     "Mild Dementia",
-    "Moderate Dementia"
+    "Moderate Dementia",
+    "Non Demented",
+    "Very mild Dementia"
 ]
 
 
 # Load training data
 train_ds = tf.keras.utils.image_dataset_from_directory(
-    data_dir,
+    path,
     validation_split=0.2,
     subset="training",
     seed=SEED,
     image_size=IMG_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="categorical",
-    class_names=class_names_order
+    class_names=class_names
 )
 
 val_ds = tf.keras.utils.image_dataset_from_directory(
-    data_dir,
+    path,
     validation_split=0.2,
     subset="validation",
     seed=SEED,
     image_size=IMG_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="categorical",
-    class_names=class_names_order
+    class_names=class_names
 )
 
 class_names = train_ds.class_names
