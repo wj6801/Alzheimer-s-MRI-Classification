@@ -1,24 +1,23 @@
-# 🧠 Alzheimer’s MRI Classification with Grad-CAM
+# Alzheimer’s MRI Classification 
 
-## 📌 Overview
-This project builds a deep learning model to classify brain MRI scans into four stages of Alzheimer’s disease progression and uses Grad-CAM to visualize the regions of the brain that influence model predictions. The goal is to combine accurate medical image classification with model interpretability.
+## Overview
+This project builds five deep learning models to classify brain MRI scans into four stages of Alzheimer’s disease progression. The goal is to combine accurate medical image classification with model interpretability.
 
 ---
 
-## 🎯 Objectives
+## Objectives
 - Classify MRI scans into 4 categories:
   - Non Demented (Healthy)
   - Very Mild Dementia
   - Mild Dementia
   - Moderate Dementia
 - Handle class imbalance
-- Apply transfer learning using a pre-trained CNN
-- Implement Grad-CAM for interpretability
+- Apply transfer learning using various ML models
 - Evaluate model performance using standard metrics
 
 ---
 
-## 📂 Dataset
+## Dataset
 Dataset: OASIS Alzheimer’s MRI Dataset
 
 ### Key Details:
@@ -37,7 +36,7 @@ Dataset: OASIS Alzheimer’s MRI Dataset
 
 ---
 
-## 🏗️ Model Architecture
+## Model Architecture
 - Base Model: EfficientNetB0 (pre-trained on ImageNet)
 - Custom Layers:
   - Conv2D (used for Grad-CAM)
@@ -67,7 +66,7 @@ Class weights are applied during training to balance the dataset.
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 - Accuracy
 - Precision
 - Recall
@@ -76,7 +75,7 @@ Class weights are applied during training to balance the dataset.
 
 ---
 
-## 🔥 Grad-CAM (Explainability)
+## Grad-CAM (Explainability)
 Grad-CAM (Gradient-weighted Class Activation Mapping) is used to visualize which regions of the MRI influenced the model’s prediction.
 
 Outputs include:
@@ -88,7 +87,7 @@ This improves interpretability, which is critical in medical applications.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 ├── data/
 ├── notebooks/
 ├── models/
@@ -101,7 +100,7 @@ This improves interpretability, which is critical in medical applications.
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Install dependencies
 ```bash
@@ -111,7 +110,7 @@ Download Dataset:
 import kagglehub
 path = kagglehub.dataset_download("ninadaithal/imagesoasis")
 
-Train Model:
+## Train Model:
 python train.py
 
 Run Grad-CAM:
