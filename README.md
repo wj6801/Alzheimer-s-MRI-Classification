@@ -89,17 +89,20 @@ This improves interpretability, which is critical in medical applications.
 ### Install dependencies
 ```bash
 pip install tensorflow-macos tensorflow-metal kagglehub numpy matplotlib scikit-learn
-
+```
 Download Dataset:
+```bash
 import kagglehub
 path = kagglehub.dataset_download("ninadaithal/imagesoasis")
-
-## Train Model:
+```
+Train Model:
+```bash
 python train.py
-
+```
 Run Grad-CAM:
+```bash
 Python gradcam.py
-
+```
 ---
 Limitations:
 Slice-level classification instead of patient-level diagnosis
