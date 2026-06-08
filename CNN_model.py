@@ -254,23 +254,14 @@ for images, labels_batch in val_ds.take(1):
     for i in range(4):
         show_gradcam(images[i], model, class_names)
 
-# Store true labels and predictions
 y_true = []
 y_pred = []
 
-# Generate predictions
 for images, labels_batch in val_ds:
     preds = model.predict(images, verbose=0)
-
-    # Convert one-hot encoded labels to class indices
     y_true.extend(np.argmax(labels_batch.numpy(), axis=1))
 
-    # Predicted class indices
     y_pred.extend(np.argmax(preds, axis=1))
-
-# -----------------------------
-# Overall Metrics
-# -----------------------------
 
 # Accuracy
 accuracy = accuracy_score(y_true, y_pred)
@@ -281,14 +272,10 @@ macro_f1 = f1_score(y_true, y_pred, average='macro')
 print(f"Accuracy: {accuracy:.4f}")
 print(f"Macro F1 Score: {macro_f1:.4f}")
 
-# -----------------------------
 # Individual Class F1 Scores
-# -----------------------------
 
-# Get F1 for each class
 f1_per_class = f1_score(y_true, y_pred, average=None)
 
-# Match indices to class names
 class_names = [
     "Mild Dementia",
     "Moderate Dementia",
@@ -298,10 +285,6 @@ class_names = [
 
 for class_name, f1 in zip(class_names, f1_per_class):
     print(f"{class_name} F1 Score: {f1:.4f}")
-
-# -----------------------------
-# Full Classification Report
-# -----------------------------
 
 print("\nClassification Report:")
 print(classification_report(y_true, y_pred, target_names=class_names))
